@@ -13,4 +13,6 @@ Ado.net ile veritabanı işlemleri yapılmıştır
 ![image](https://github.com/illkkeerr/Asp.Net_Mvc_Stok_Takip_Uygulamasi/assets/129404140/0dda797a-ff93-4775-bcc2-db9c6a356a96)
 ![image](https://github.com/illkkeerr/Asp.Net_Mvc_Stok_Takip_Uygulamasi/assets/129404140/ad80182d-a3a4-4ce9-a29b-43849895f4f4)
 ![image](https://github.com/illkkeerr/Asp.Net_Mvc_Stok_Takip_Uygulamasi/assets/129404140/bbea9045-8860-4e8a-a8d6-8b0bafbfbb9b)
+![image](https://github.com/illkkeerr/Asp.Net_Mvc_Stok_Takip_Uygulamasi/assets/129404140/6adb99e6-221d-409c-8454-0152f5a99a5e)
+
 
