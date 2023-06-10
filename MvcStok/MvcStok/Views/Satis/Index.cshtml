@@ -1,0 +1,71 @@
+﻿@model MvcStok.Models.Entity.TblSatislar
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+  
+}
+
+@*<h2>Satışlar Sayfası</h2>*@
+<h2>Yapılan Satışların Listesi</h2>
+<table class="table table-bordered">
+    <tr>
+        <th>Satış Id</th>
+        <th>Ürün Adı</th>
+        <th>Müşteri Adı</th>
+        <th>Satış Adedi</th>
+        <th>Fiyatı</th>
+        <th>Satış Sil</th>
+        <th>Adet Ekleyerek Sil</th>
+        <th>Bilgileri Güncelle</th>
+
+    </tr>
+    <tbody>
+        @foreach (var sat in ViewBag.dgr)
+        {
+            <tr>
+                <th>@sat.SatisId</th>
+                <td>@sat.TblUrunler.UrunAd</td>
+                <td>@sat.TblMusteri.MusteriAd@(" ")@sat.TblMusteri.MusteriSoyad</td>
+                <td>@sat.Adet</td>
+                <td>@sat.Fiyat</td>
+                <td><a href="/Satis/Sil/@sat.SatisId" class="btn btn-danger">Sil</a></td>
+                <td><a href="/Satis/Sil2/@sat.SatisId" class="btn btn-danger">Adet Ekleyerek Sil</a></td>
+                <td><a href="/Satis/SatisGetir/@sat.SatisId" class="btn btn-warning">Güncelle</a></td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal1">Satış Yap</button>
+<div class="modal" id="Modal1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Satış Yapma Ekranı</h2>
+            </div>
+            <form method="post" action="/Satis/YeniSatis">
+                <div class="modal-body">
+                    <label>Ürün Adı</label>
+                    @*<input type="text" name="Urun" class="form-control" />*@
+                    @*@Html.TextBoxFor(m => m.UrunId, new { @class = "form-control" })*@
+                    @Html.DropDownListFor(m => m.TblUrunler.UrunId, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+                    <br />
+                    <label>Müşteri Adı Soyadı</label>
+                    @*@Html.TextBoxFor(m => m.MusteriId, new { @class = "form-control" })*@
+                    @Html.DropDownListFor(m => m.TblMusteri.MusteriId, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+                    <br />
+                    <label>Adet</label>
+                    @Html.TextBoxFor(m => m.Adet, new { @class = "form-control" })
+                    <br />
+                    <label>Fiyat</label>
+                    @Html.TextBoxFor(m => m.Fiyat, new { @class = "form-control" })
+                    <br />
+                    <button type="submit" class="btn btn-info">Satış İşlemini Yap</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Vazgeç</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
